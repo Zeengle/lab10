@@ -28,3 +28,8 @@ def test_emitir_tipo_invalido():
     fila = Fila()
     with pytest.raises(ValueError):
         fila.emitir("vip")
+
+def test_chamar_fila_vazia():
+    fila = Fila()
+    with pytest.raises(IndexError):
+        fila.chamar()
