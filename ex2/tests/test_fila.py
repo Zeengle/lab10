@@ -77,3 +77,21 @@ def test_zerar_contagem_prioritarias_apos_normal():
     assert fila.chamar() == "P2"
     assert fila.chamar() == "N1"
     assert fila.chamar() == "P3"
+
+
+'''
+Questoes: 
+
+c) Qual teste obrigou a contar as prioritárias seguidas? Qual obrigou a
+zerar a contagem?
+    R: O test_limite_duas_prioridades_chama_normal obrigou a introdzir uma variavel de controle de contagem no codigo de produção.
+    O teste test_zerar_contagem_prioritarias_apos_normal obrigou a garantir que o contador fosse rersetado para zero assim que a senha fosse atendida.
+
+d) Que teste mostra que o limite de 2 não vale quando nenhuma normal
+espera?
+    R: o teste: test_limite_duas_prioritarias_ignorado_sem_normal.
+    
+e) Rode o mutmut. Os mutantes vivos indicam algum comportamento da
+especificação sem teste?
+    R: 45 Mutantes mortos e 7 mutantes vivos. Não necessariamente, pode ser uma falha de asserção sobre detalhes secundarios ou redundancia logica.
+'''
