@@ -2,20 +2,31 @@ class Fila:
     def __init__(self):
         self.normais = []
         self.prioritarias = []
+        self.contador_normal = 0
+        self.contador_prioritaria = 0
 
     def aguardando(self) -> int:
         return len(self.normais) + len(self.prioritarias)
 
     def emitir(self, tipo):
         if tipo == "normal":
-            self.normais.append(1)
-            return f"N{len(self.normais)}"
+            self.contador_normal += 1
+            senha = f"N{self.contador_normal}"
+            self.normais.append(senha)
+            return senha
         elif tipo == "prioritaria":
-            self.prioritarias.append(1)
-            return f"P{len(self.prioritarias)}"
+            self.contador_prioritaria += 1
+            senha = f"P{self.contador_prioritaria}"
+            self.prioritarias.append(senha)
+            return senha
         else:
             raise ValueError(f"Tipo de senha inválido: {tipo}")
 
     def chamar(self):
         if self.aguardando() == 0:
             raise IndexError("Fila vazia")
+        
+        if len(self.prioritarias) > 0:
+            return self.prioritarias.pop(0)
+        
+        return self.normais.pop(0)
