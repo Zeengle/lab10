@@ -4,8 +4,9 @@ class Fila:
         self.prioritarias = []
         self.contador_normal = 0
         self.contador_prioritaria = 0
+        self.prioritarias_seguidas = 0
 
-    def aguardando(self) -> int:
+    def aguardando(self):
         return len(self.normais) + len(self.prioritarias)
 
     def emitir(self, tipo):
@@ -25,8 +26,14 @@ class Fila:
     def chamar(self):
         if self.aguardando() == 0:
             raise IndexError("Fila vazia")
-        
+
+        if self.prioritarias_seguidas >= 2 and len(self.normais) > 0:
+            self.prioritarias_seguidas = 0
+            return self.normais.pop(0)
+
         if len(self.prioritarias) > 0:
+            self.prioritarias_seguidas += 1
             return self.prioritarias.pop(0)
-        
+
+        self.prioritarias_seguidas = 0
         return self.normais.pop(0)
