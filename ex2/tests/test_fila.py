@@ -1,4 +1,5 @@
 from fila import Fila
+import pytest
 
 def test_fila_vazia_inicial():
     fila = Fila()
@@ -22,3 +23,8 @@ def test_emitir_senha_prioritaria():
     senha = fila.emitir("prioritaria")
     assert senha == "P1"
     assert fila.aguardando() == 1
+
+def test_emitir_tipo_invalido():
+    fila = Fila()
+    with pytest.raises(ValueError):
+        fila.emitir("vip")
