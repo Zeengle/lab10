@@ -8,3 +8,6 @@ def test_apenas_pontuacao():
 
 def test_palavra_unica():
     assert contar_palavras("teste") == {"teste": 1}
+
+def test_case_insensitive():
+    assert contar_palavras("Dia dia DIA") == {"dia": 3}
