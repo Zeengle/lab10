@@ -10,3 +10,6 @@ class Fila:
         if tipo == "normal":
             self.normais.append(1)
             return f"N{len(self.normais)}"
+        elif tipo == "prioritaria":
+            self.prioritarias.append(1)
+            return f"P{len(self.prioritarias)}"
