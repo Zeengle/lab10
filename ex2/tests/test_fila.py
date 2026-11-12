@@ -16,3 +16,9 @@ def test_emitir_senhas_normais_sequenciais():
     assert fila.emitir("normal") == "N2"
     assert fila.emitir("normal") == "N3"
     assert fila.aguardando() == 3
+
+def test_emitir_senha_prioritaria():
+    fila = Fila()
+    senha = fila.emitir("prioritaria")
+    assert senha == "P1"
+    assert fila.aguardando() == 1
