@@ -15,3 +15,7 @@ class Fila:
             return f"P{len(self.prioritarias)}"
         else:
             raise ValueError(f"Tipo de senha inválido: {tipo}")
+
+    def chamar(self):
+        if self.aguardando() == 0:
+            raise IndexError("Fila vazia")
