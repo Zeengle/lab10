@@ -13,3 +13,5 @@ class Fila:
         elif tipo == "prioritaria":
             self.prioritarias.append(1)
             return f"P{len(self.prioritarias)}"
+        else:
+            raise ValueError(f"Tipo de senha inválido: {tipo}")
