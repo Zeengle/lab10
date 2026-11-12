@@ -65,3 +65,15 @@ def test_limite_duas_prioritarias_ignorado_sem_normal():
     assert fila.chamar() == "P1"
     assert fila.chamar() == "P2"
     assert fila.chamar() == "P3"
+
+def test_zerar_contagem_prioritarias_apos_normal():
+    fila = Fila()
+    fila.emitir("prioritaria")
+    fila.emitir("prioritaria")
+    fila.emitir("normal")
+    fila.emitir("prioritaria")
+
+    assert fila.chamar() == "P1"
+    assert fila.chamar() == "P2"
+    assert fila.chamar() == "N1"
+    assert fila.chamar() == "P3"
