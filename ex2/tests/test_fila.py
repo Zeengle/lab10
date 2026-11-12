@@ -43,3 +43,15 @@ def test_ordem_atendimento_prioritaria_frente():
     assert fila.chamar() == "P1"
     assert fila.chamar() == "N1"
     assert fila.chamar() == "N2"
+
+def test_limite_duas_prioritarias_chama_normal():
+    fila = Fila()
+    fila.emitir("normal")
+    fila.emitir("prioritaria")
+    fila.emitir("prioritaria")
+    fila.emitir("prioritaria")
+
+    assert fila.chamar() == "P1"
+    assert fila.chamar() == "P2"
+    assert fila.chamar() == "N1"
+    assert fila.chamar() == "P3"
