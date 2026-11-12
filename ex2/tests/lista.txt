@@ -1,0 +1,19 @@
+1. test_fila_vazia_inicial: Fila recém-criada tem aguardando == 0.
+
+2. test_emitir_senha_normal: Emite "normal", retorna "N1" e aguardando == 1.
+
+3. test_emitir_senhas_normais_sequenciais: Emite múltiplas normais gerando "N1", "N2", "N3".
+
+4. test_emitir_senha_prioritaria: Emite "prioritaria", retorna "P1" e aguardando == 1.
+
+5. test_emitir_tipo_invalido: Tipo desconhecido (ex: "vip") lança ValueError.
+
+6. test_chamar_fila_vazia: Chamar em fila vazia lança IndexError.
+
+7. test_ordem_atendimento_prioritaria_frente: Prioritária fura a fila da normal respeitando ordem de chegada por tipo.
+
+8. test_limite_duas_prioritarias_chama_normal: Após 2 prioritárias seguidas, se há normal esperando, chama a normal.
+
+9. test_limite_duas_prioritarias_ignorado_sem_normal: Se só há prioritárias, o limite de 2 não bloqueia novas prioritárias.
+
+10. test_zerar_contagem_prioritarias_apos_normal: Após chamar a normal pelo limite, o contador de prioritárias consecutivas zera.
