@@ -1,5 +1,5 @@
 import pytest
-from src.carrinho import Carrinho
+from carrinho import Carrinho
 
 def test_adicionar_quantidade_invalida():
     carrinho = Carrinho()
