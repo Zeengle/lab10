@@ -11,3 +11,7 @@ def test_palavra_unica():
 
 def test_case_insensitive():
     assert contar_palavras("Dia dia DIA") == {"dia": 3}
+
+def test_hifen_interno():
+    assert contar_palavras("guarda-chuva") == {"guarda-chuva": 1}
+
