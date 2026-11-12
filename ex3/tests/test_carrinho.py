@@ -14,7 +14,23 @@ def test_adicionar_quantidade_nao_inteira():
     with pytest.raises(ValueError):
         carrinho.adicionar(100, quantidade=1.5)
 
+def test_cupom_dez_abaixo_do_minimo_nao_da_desconto():
+    carrinho = Carrinho()
+    carrinho.adicionar(5000)
+    carrinho.aplicar_cupom("DEZ")
+    assert carrinho.total == 5000
 
+def test_cupom_dez_atinge_minimo():
+    carrinho = Carrinho()
+    carrinho.adicionar(10000)
+    carrinho.aplicar_cupom("DEZ")
+    assert carrinho.total == 9000
+
+def test_cupom_vinte_atinge_minimo():
+    carrinho = Carrinho()
+    carrinho.adicionar(30000)
+    carrinho.aplicar_cupom("VINTE")
+    assert carrinho.total == 24000
 
 
 
